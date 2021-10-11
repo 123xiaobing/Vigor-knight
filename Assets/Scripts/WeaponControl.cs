@@ -21,8 +21,7 @@ public class WeaponControl : MonoBehaviour
         {
             if (isShooting())
             {
-                Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
-                // bullet.GetComponent<bulletInit>().Shoot();
+                 Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
             }
         }
@@ -31,17 +30,18 @@ public class WeaponControl : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
     }
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        if (player.transform.localScale.x == 1) transform.localScale = new Vector3(1,1,1);
+        if (player.transform.localScale.x == 1) transform.localScale = new Vector3(1, 1, 1);
         if (player.transform.localScale.x == -1) transform.localScale = new Vector3(-1, -1, 1);
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-        
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, rotZ + offset);
+
+
+
 
     }
-
     bool isShooting()
     {
         bool shotting = false;
