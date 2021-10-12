@@ -920,8 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7155bfacf9a13444b59b08d76a4085d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerProjectilePools:
-  - {fileID: 0}
+  playerProjectilePools: []
 --- !u!4 &1228557594
 Transform:
   m_ObjectHideFlags: 0

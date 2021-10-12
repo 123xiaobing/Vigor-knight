@@ -6,7 +6,7 @@ public class PoolManager : MonoBehaviour
 {
     [SerializeField] Pool[] playerProjectilePools;
 
-    private void Start()
+    void Start()
     {
         Initialize(playerProjectilePools);
     }
@@ -15,7 +15,11 @@ public class PoolManager : MonoBehaviour
     {
         foreach(var pool in pools)
         {
-            pool.Initialize();
+            Transform poolParent= new GameObject("Pool:" + pool.Prefab.name).transform;
+
+            poolParent.parent = transform;
+
+            pool.Initialize(poolParent);
         }
     }
 }

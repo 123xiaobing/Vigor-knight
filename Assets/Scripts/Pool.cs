@@ -5,15 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public class Pool : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] int size = 1;
+    public GameObject Prefab => bulletPrefab;
+    
+   
+
+    public GameObject bulletPrefab;
+    public int size;
 
     Queue<GameObject> queue;
 
-
-    public void Initialize()
+    Transform parent;
+    public void Initialize(Transform parent)
     {
         queue = new Queue<GameObject>();
+        this.parent = parent;
 
         for (var i = 0; i < size; i++)
         {
@@ -23,7 +28,7 @@ public class Pool : MonoBehaviour
 
     GameObject Copy()
     {
-        var copy = GameObject.Instantiate(bulletPrefab);
+        var copy = GameObject.Instantiate(bulletPrefab,parent);
 
         copy.SetActive(false);
 
