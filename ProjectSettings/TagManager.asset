@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - EnemyPig
+  - EnemyGoblin
+  - Enemy
+  - Door
+  - Miner
+  - Zombie
   layers:
   - Default
   - TransparentFX
@@ -13,11 +19,11 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Player
   - BasicRoom
   - Destroyable
   - wall
-  - 
+  - Obstacle
   - 
   - 
   - 

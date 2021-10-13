@@ -8,6 +8,14 @@ public class bullet : MonoBehaviour
     public Rigidbody2D rb;
     [SerializeField] private float speed;
     private Vector2 speedDir;
+   
+
+
+    /// <summary>
+    /// 能够摧毁的对象
+    /// </summary>
+    private PigAI pig;
+    private GoblinAI goblin;
 
 
     void Start()
@@ -15,6 +23,7 @@ public class bullet : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         
+
         // 获取鼠标坐标并转换成世界坐标
         Vector3 m_mousePosition = Input.mousePosition;
         m_mousePosition = Camera.main.ScreenToWorldPoint(m_mousePosition);
@@ -24,25 +33,31 @@ public class bullet : MonoBehaviour
         rb.velocity = ((m_mousePosition - transform.position).normalized * speed);
        
     }
-
-   
-
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*Vector3 difference = Input.mousePosition;
-        Vector3 original = new Vector3(weapon.transform.position.x, weapon.transform.position.y, weapon.transform.position.z);
-        float cos = (difference.x - original.x) / Mathf.Sqrt((difference.x - original.x) * (difference.x - original.x) + (difference.y - original.y) * (difference.y - original.y));
-        float sin=(difference.y-original.y)/ Mathf.Sqrt((difference.x - original.x) * (difference.x - original.x) + (difference.y - original.y) * (difference.y - original.y));
-        //transform.eulerAngles = new Vector3(0, 0, rotZ);
-        //rb.velocity=(new Vector3(difference.x - Camera.main.pixelWidth / 2, difference .y - Camera.main.pixelHeight / 2, 0).normalized * speed);
-        rb.velocity = new Vector3(speed * cos, speed * sin);*/
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       if(collision.transform.tag=="wall")
+        if(collision.gameObject.tag=="wall")
         {
-            Destroy(transform.gameObject);
+
+            Destroy(gameObject);
         }
+
+        if(collision.gameObject.tag=="EnemyPig")
+        {
+            pig =collision.gameObject.GetComponent<PigAI>();
+            pig.anim.SetBool("pigDie", true);
+            Destroy(collision.gameObject,0.1f);
+            Destroy(gameObject);
+            Room.instance.enemyNum--;
+        }
+
+        if (collision.gameObject.tag == "EnemyGoblin")
+        {
+            goblin = collision.gameObject.GetComponent<GoblinAI>();
+            goblin.anim.SetBool("goblinDie", true);
+            Destroy(collision.gameObject, 0.1f);
+            Destroy(gameObject);
+            Room.instance.enemyNum--;
+        }
+
     }
 }

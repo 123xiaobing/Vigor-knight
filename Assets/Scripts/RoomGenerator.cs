@@ -47,10 +47,6 @@ public class RoomGenerator : MonoBehaviour
         //找到最后房间
         foreach(var room in rooms)
         {
-            //if(room.transform.position.sqrMagnitude>endRoom.transform.position.sqrMagnitude)//sqrMagnitude:x*x+y*y+z*z
-            //{
-            //    endRoom = room.gameObject;
-            //}
 
             SetupRoom(room, room.transform.position);
 
