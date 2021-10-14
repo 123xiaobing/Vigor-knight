@@ -8,8 +8,8 @@ public class bullet : MonoBehaviour
     public Rigidbody2D rb;
     [SerializeField] private float speed;
     private Vector2 speedDir;
-   
 
+    public int attackForce;
 
     /// <summary>
     /// 能够摧毁的对象
@@ -40,24 +40,45 @@ public class bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
-
+        //消灭敌人
         if(collision.gameObject.tag=="EnemyPig")
         {
             pig =collision.gameObject.GetComponent<PigAI>();
-            pig.anim.SetBool("pigDie", true);
-            Destroy(collision.gameObject,0.1f);
+            pig.healthNum-=attackForce;
             Destroy(gameObject);
-            Room.instance.enemyNum--;
+            if (pig.healthNum == 0)
+            {
+                pig.anim.SetBool("pigDie", true);
+                Destroy(collision.gameObject, 0.1f);
+                Destroy(gameObject);
+                Room.instance.enemyNum--;
+            }
         }
 
         if (collision.gameObject.tag == "EnemyGoblin")
         {
             goblin = collision.gameObject.GetComponent<GoblinAI>();
-            goblin.anim.SetBool("goblinDie", true);
-            Destroy(collision.gameObject, 0.1f);
+            goblin.healthNum-=attackForce;
             Destroy(gameObject);
-            Room.instance.enemyNum--;
+            if (goblin.healthNum == 0)
+            {
+                goblin.anim.SetBool("goblinDie", true);
+                Destroy(collision.gameObject, 0.1f);
+                Destroy(gameObject);
+                Room.instance.enemyNum--;
+            }
+           
+        }
+
+        if (collision.gameObject.tag == "Destroyable")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            
         }
 
     }
+   
+
+
 }

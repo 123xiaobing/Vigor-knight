@@ -167,5 +167,5 @@ MonoBehaviour:
   anim: {fileID: 8878925445004982758}
   speed: 0
   speedDir: 0
-  attackForce: 0
-  healthNum: 0
+  attackForce: 1
+  healthNum: 2

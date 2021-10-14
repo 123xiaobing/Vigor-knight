@@ -58,18 +58,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\PigAI.cs" />
+    <Compile Include="Assets\Scripts\PetControl.cs" />
     <Compile Include="Assets\Scripts\smallMapControl.cs" />
     <Compile Include="Assets\Scripts\playerControl.cs" />
     <Compile Include="Assets\Scripts\WeaponControl.cs" />
     <Compile Include="Assets\Scripts\Enemy\GoblinAI.cs" />
+    <Compile Include="Assets\Scripts\LayerChange.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\AControl.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
     <Compile Include="Assets\Scripts\bullet.cs" />
     <Compile Include="Assets\Scripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
+    <Compile Include="Assets\Scripts\doorControl.cs" />
     <Compile Include="Assets\Scripts\wallMap.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
-    <Compile Include="Assets\doorControl.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/2020.3.16f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -292,11 +295,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:/Program Files/2020.3.16f1c1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>F:/Demo/元气骑士/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>F:/Demo/元气骑士/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>F:/Demo/元气骑士/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/2020.3.16f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -738,9 +741,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{CE020F10-FDAF-5103-3F67-8D0827AA3BE4}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{09AABB65-D33C-57FB-3D90-F1BD6A7D8CC6}</Project>
+      <Name>PackageToolsEditor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
@@ -748,9 +751,9 @@
       <Name>AstarPathfindingProject</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{09AABB65-D33C-57FB-3D90-F1BD6A7D8CC6}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{CE020F10-FDAF-5103-3F67-8D0827AA3BE4}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

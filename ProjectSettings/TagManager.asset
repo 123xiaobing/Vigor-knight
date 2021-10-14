@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Miner
   - Zombie
+  - Destroyable
   layers:
   - Default
   - TransparentFX

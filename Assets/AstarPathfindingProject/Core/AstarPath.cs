@@ -24,7 +24,11 @@ using Thread = System.Threading.Thread;
 /// \ingroup relevant
 /// </summary>
 [HelpURL("http://arongranberg.com/astar/docs/class_astar_path.php")]
-public class AstarPath : VersionedMonoBehaviour {
+public class AstarPath : VersionedMonoBehaviour
+{
+
+	long stopTime = -3;
+
 	/// <summary>The version number for the A* %Pathfinding Project</summary>
 	public static readonly System.Version Version = new System.Version(4, 2, 15);
 
@@ -42,11 +46,14 @@ public class AstarPath : VersionedMonoBehaviour {
 	/// </summary>
 	public static readonly string Branch = "master";
 
-	/// <summary>
-	/// See Pathfinding.AstarData
-	/// Deprecated:
-	/// </summary>
-	[System.Obsolete]
+   
+
+
+    /// <summary>
+    /// See Pathfinding.AstarData
+    /// Deprecated:
+    /// </summary>
+    [System.Obsolete]
 	public System.Type[] graphTypes {
 		get {
 			return data.graphTypes;
@@ -869,6 +876,12 @@ public class AstarPath : VersionedMonoBehaviour {
 
 		// Return calculated paths
 		pathReturnQueue.ReturnPaths(true);
+        if (Time.time - stopTime > 3f)
+        {
+			AstarPath.active.Scan();
+			stopTime += 3;
+		}
+		
 	}
 
 	private void PerformBlockingActions (bool force = false) {

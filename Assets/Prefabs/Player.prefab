@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239928647837313127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.782074, y: -18.077757, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3239928646670249862}
@@ -403,10 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3239928647837313131}
+  anim: {fileID: 0}
+  healthNum: 0
   speed: 6
   speed1: 0
-  destroyable:
-  - {fileID: 518497964479836738, guid: 168bd22c9affdf5489601bd732ebef14, type: 3}
-  - {fileID: 1311416812696221390, guid: 40a39209ef474e04e85978c91eeac9d6, type: 3}
-  - {fileID: 1054647553794175818, guid: add9911e247d8bc4aaddf41dc363c6c7, type: 3}
-  - {fileID: 1406693279765219086, guid: e29bd55c82624c04485c7abc4513ea13, type: 3}
+  playerPrefab: {fileID: 0}

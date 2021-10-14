@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00838a07d15bc2441b85d2c2b26e11d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  weapon: {fileID: 0}
   rb: {fileID: 5029438494588429031}
+  speed: 10
+  attackForce: 1
 --- !u!50 &5029438494588429031
 Rigidbody2D:
   serializedVersion: 4

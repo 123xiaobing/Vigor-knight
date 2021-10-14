@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Pathfinding;
 public class playerControl : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Collider2D coll;
-    private Animator anim;
+    public Animator anim;
 
+
+    public int healthNum;
     public float speed;
     public float speed1;
     Vector2 movement;
+    public Transform playerPrefab;
+   
 
-    public List<GameObject> destroyable;
+    
 
 
     void Start()
@@ -26,6 +30,7 @@ public class playerControl : MonoBehaviour
     
     void Update()
     {
+        playerPrefab.position = transform.position;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
