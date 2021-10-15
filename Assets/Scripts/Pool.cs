@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Pool : MonoBehaviour
+public class Pool
 {
-    public GameObject Prefab => bulletPrefab;
-    
-   
-
     public GameObject bulletPrefab;
     public int size;
+
+    public GameObject Prefab => bulletPrefab;
 
     Queue<GameObject> queue;
 

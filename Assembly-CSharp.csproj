@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\doorControl.cs" />
     <Compile Include="Assets\Scripts\wallMap.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
+    <Compile Include="Assets\Scripts\PlayerUI.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/2020.3.16f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

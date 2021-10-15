@@ -10,25 +10,21 @@ public class PigAI : MonoBehaviour
     public Animator anim;
     public playerControl player;
 
-
-    [Header("ÒÆ¶¯²ÎÊý")]
-    public float speed;
-    public float speedDir;
-
-    [Header("¹¥»÷²ÎÊý")]
     public int attackForce=1;//¹¥»÷Á¦
-
 
     public int healthNum=2;//ÉúÃü
 
+
+    Vector3 initPosition;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+
+        initPosition = transform.position;
         
-       // player = GetComponent<playerControl>();
     }
 
     // Update is called once per frame
@@ -51,27 +47,32 @@ public class PigAI : MonoBehaviour
     {
         if(Mathf.Abs(transform.position.x-player.transform.position.x)>18&&Mathf.Abs(transform.position.y - player.transform.position.y)>10)
         {
-            rb.bodyType = RigidbodyType2D.Static;
+            transform.position = initPosition;
         }
-        else
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
+       
     }
 
 
     //¹¥»÷Íæ¼Ò
-    private void OnTriggerEnter2D(Collider2D collision)
+   
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-            player.healthNum -= attackForce;
-            if(player.healthNum<=0)
+            player = collision.gameObject.GetComponent<playerControl>();
+            player.defenceNum -= attackForce;
+            if (player.defenceNum < 0)
             {
-                player.anim.SetBool("die", true);
-                Destroy(collision.gameObject);
+                player.defenceNum = 0;
+                player.healthNum -= attackForce;
 
-                //ÇÐ»»ËÀÍö»­Ãæ 
+                if (player.healthNum <= 0)
+                {
+                    player.anim.SetBool("die", true);
+                    player.speed1 = 0;
+                    Time.timeScale = 0;
+                    //ÇÐ»»ËÀÍö»­Ãæ 
+                }
             }
         }
     }

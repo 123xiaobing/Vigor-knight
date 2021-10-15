@@ -10,6 +10,8 @@ public class WeaponControl : MonoBehaviour
     public Transform shotPoint;
 
     private float timeBtwShots;
+    private float machineShotTime = 0.5f;
+    private float nextMachineShotTime = 0f;
     public float startTimeBtwShots;
 
 
@@ -17,18 +19,29 @@ public class WeaponControl : MonoBehaviour
     {
        
         transform.position = new Vector3(player.rb.position.x+0.117f, player.rb.position.y-0.189f, transform.position.z);
+
+        //ÊÖÇ¹Éä»÷
         if (timeBtwShots <= 0)
         {
-            if (isShooting())
+            if (isPistolShooting())
             {
                  Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
             }
+
         }
         else
         {
             timeBtwShots -= Time.deltaTime;
         }
+
+        //»úÇ¹Éä»÷
+        
+        //if (isMachineGunShooting())
+        //{
+        //    Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
+        //}
+
     }
     public void FixedUpdate()
     {
@@ -42,7 +55,7 @@ public class WeaponControl : MonoBehaviour
 
 
     }
-    bool isShooting()
+    bool isPistolShooting()//ÊÖÇ¹Éä»÷
     {
         bool shotting = false;
         if (Input.GetMouseButtonDown(0))
@@ -50,6 +63,16 @@ public class WeaponControl : MonoBehaviour
             shotting = true;
         }
         return shotting;
+    }
+
+    bool isMachineGunShooting()//»úÇ¹Éä»÷
+    {
+        bool shooting = false;
+        if(Input.GetMouseButton(0))
+        {
+            shooting = true;
+        }
+        return shooting;
     }
 
 }

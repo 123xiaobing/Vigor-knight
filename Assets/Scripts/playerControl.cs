@@ -1,21 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+using UnityEngine.UI;
 public class playerControl : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Collider2D coll;
     public Animator anim;
 
-
+    [Header("ÕÊº“ Ù–‘")]
     public int healthNum;
+    public int MaxHealth;
+    public int magicNum;
+    public int MaxMagic;
+    public int defenceNum;
+    public int MaxDefence;
+
+
+
     public float speed;
     public float speed1;
     Vector2 movement;
-    public Transform playerPrefab;
-   
 
+
+    public Transform playerPrefab;
+
+
+    
     
 
 
@@ -25,6 +36,10 @@ public class playerControl : MonoBehaviour
         coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         speed1 = speed;
+        
+        healthNum = MaxHealth;
+        magicNum = MaxMagic;
+        defenceNum = MaxDefence;
     }
 
     
@@ -40,6 +55,7 @@ public class playerControl : MonoBehaviour
         }
 
         switchAnim();
+
     }
     private void FixedUpdate()
     {
@@ -54,8 +70,5 @@ public class playerControl : MonoBehaviour
         anim.SetFloat("running", movement.magnitude-0.1f);
     }
 
-
-
-
-
+   
 }

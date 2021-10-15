@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    [SerializeField] Pool[] playerProjectilePools;
+    public Pool[] playerProjectilePools;
 
     void Start()
     {

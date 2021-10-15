@@ -9,7 +9,8 @@ public class bullet : MonoBehaviour
     [SerializeField] private float speed;
     private Vector2 speedDir;
 
-    public int attackForce;
+    public int attackForce;//手枪攻击力
+    public int attackForce2;//机枪攻击力
 
     /// <summary>
     /// 能够摧毁的对象
@@ -37,16 +38,17 @@ public class bullet : MonoBehaviour
     {
         if(collision.gameObject.tag=="wall")
         {
-
             Destroy(gameObject);
         }
+
+
         //消灭敌人
         if(collision.gameObject.tag=="EnemyPig")
         {
             pig =collision.gameObject.GetComponent<PigAI>();
             pig.healthNum-=attackForce;
             Destroy(gameObject);
-            if (pig.healthNum == 0)
+            if (pig.healthNum <= 0)
             {
                 pig.anim.SetBool("pigDie", true);
                 Destroy(collision.gameObject, 0.1f);
@@ -60,7 +62,7 @@ public class bullet : MonoBehaviour
             goblin = collision.gameObject.GetComponent<GoblinAI>();
             goblin.healthNum-=attackForce;
             Destroy(gameObject);
-            if (goblin.healthNum == 0)
+            if (goblin.healthNum <= 0)
             {
                 goblin.anim.SetBool("goblinDie", true);
                 Destroy(collision.gameObject, 0.1f);
@@ -70,6 +72,7 @@ public class bullet : MonoBehaviour
            
         }
 
+        //清楚可破坏物
         if (collision.gameObject.tag == "Destroyable")
         {
             Destroy(collision.gameObject);

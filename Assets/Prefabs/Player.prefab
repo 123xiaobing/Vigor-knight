@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239928647837313127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.782074, y: -18.077757, z: 0}
+  m_LocalPosition: {x: -19.523043, y: 18.53613, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3239928646670249862}
@@ -404,7 +404,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3239928647837313131}
   anim: {fileID: 0}
-  healthNum: 0
+  healthNum: -9
+  MaxHealth: 0
+  magicNum: 0
+  MaxMagic: 0
+  defenceNum: 0
+  MaxDefence: 0
   speed: 6
   speed1: 0
   playerPrefab: {fileID: 0}
