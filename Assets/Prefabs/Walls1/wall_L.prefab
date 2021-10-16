@@ -2662,6 +2662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 9028824137134865994, guid: 688f3b4bb4700d14abc50885c1f49b48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 688f3b4bb4700d14abc50885c1f49b48, type: 3}
 --- !u!4 &8096656455654637200 stripped
@@ -2896,6 +2901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339343151301652608, guid: 5bcfe35ee6dc198419b8bb1060e54a62,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8207666532600177248, guid: 5bcfe35ee6dc198419b8bb1060e54a62,
         type: 3}

@@ -6,14 +6,16 @@ public class doorControl : MonoBehaviour
 {
     public GameObject doorL, doorR, doorU, doorD;
 
-
     public Collider2D checkColl;
 
+    public playerControl player;
 
-    int player;
+    public Room room;
+
     private void Start()
     {
-        player = LayerMask.NameToLayer("Player");
+        //room = GameObject.Find("Room").GetComponent<Room>();
+
         Debug.Log("开始");
         doorL.SetActive(false);
         doorR.SetActive(false);
@@ -21,33 +23,28 @@ public class doorControl : MonoBehaviour
         doorD.SetActive(false);
     }
 
-    void Update()
-    {
-        OpenDoors();
-    }
 
     public void OpenDoors()//实现开门
     {
-        if(Room.instance.enemyNum==0)
-        {
-            Debug.Log("怪物消失");
-            doorL.SetActive(false);
-            doorR.SetActive(false);
-            doorU.SetActive(false);
-            doorD.SetActive(false);
-        }
+        Debug.Log("怪物消失");
+        doorL.SetActive(false);
+        doorR.SetActive(false);
+        doorU.SetActive(false);
+        doorD.SetActive(false);
     }
-    
 
-    private void OnTriggerEnter2D(Collider2D collision)//实现关门
+    public void CloseTheDoor()//实现关门
     {
-        if(collision.gameObject.tag=="Player")/*&& Room.instance.enemyNum >0*/
-        {
-            Debug.Log("1");
-            doorL.SetActive(Room.instance.roomLeft);
-            doorR.SetActive(Room.instance.roomRight);
-            doorU.SetActive(Room.instance.roomUp);
-            doorD.SetActive(Room.instance.roomDown);
-        }
+        Debug.Log("关门");
+        if (room.roomLeft)
+            doorL.SetActive(true);
+        if (room.roomRight)
+            doorR.SetActive(true);
+        if (room.roomUp)
+            doorU.SetActive(true);
+        if (room.roomDown)
+            doorD.SetActive(true);
+
     }
+
 }

@@ -23,7 +23,7 @@ public class playerControl : MonoBehaviour
     Vector2 movement;
 
 
-    public Transform playerPrefab;
+    public Transform playerPrefab;//用于记录玩家的位置，让怪物实现自动寻路
 
 
     
@@ -32,6 +32,7 @@ public class playerControl : MonoBehaviour
 
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();

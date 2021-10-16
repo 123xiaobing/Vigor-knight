@@ -12,6 +12,8 @@ TagManager:
   - Miner
   - Zombie
   - Destroyable
+  - Room
+  - Bullet
   layers:
   - Default
   - TransparentFX

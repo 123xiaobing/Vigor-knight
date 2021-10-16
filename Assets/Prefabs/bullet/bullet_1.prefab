@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5029438494588429031}
   m_Layer: 0
   m_Name: bullet_1
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,8 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5029438494588429031}
+  room: {fileID: 2600481192483701598, guid: 53506e1c178fe2c4abe872f2f7ad968b, type: 3}
   speed: 10
   attackForce: 1
+  attackForce2: 0
 --- !u!50 &5029438494588429031
 Rigidbody2D:
   serializedVersion: 4

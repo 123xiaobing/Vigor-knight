@@ -67,14 +67,22 @@ public class PetControl : MonoBehaviour
     //¹¥»÷µÐÈË
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("EnemyPig"))
+        if(collision.CompareTag("EnemyPig")|| collision.CompareTag("EnemyGoblin"))
         {
-            pig.healthNum-=attackForce;
+            EnemyAI aI = gameObject.GetComponent<EnemyAI>();
+            aI.healthNum-=attackForce;
+            if (aI.healthNum <= 0&&aI.isAlive)
+            {
+                aI.anim.SetBool("Die", true);
+                aI.room.enemyNum--;
+                aI.isAlive = false;
+                aI.room.DoorStateChange();
+
+                Destroy(collision.gameObject, 1f);
+
+            }
         }
-        if(collision.CompareTag("EnemyGoblin"))
-        {
-            goblin.healthNum -= attackForce;
-        }
+               
     }
 
 }

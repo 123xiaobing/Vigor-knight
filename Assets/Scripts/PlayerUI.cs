@@ -26,7 +26,7 @@ public class PlayerUI : MonoBehaviour
     public void UIChange()
     {
         HealthPIC.fillAmount = (float)player.healthNum / (float)player.MaxHealth;
-        Debug.Log(HealthPIC.fillAmount);
+        
         healthText.text = player.healthNum.ToString() + "/" + player.MaxHealth.ToString();
 
         DefencePIC.fillAmount = (float)player.defenceNum / (float)player.MaxDefence;

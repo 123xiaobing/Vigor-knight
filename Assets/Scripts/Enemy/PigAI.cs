@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 
-public class PigAI : MonoBehaviour
+public class PigAI : EnemyAI
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
-    public Animator anim;
-    public playerControl player;
+    [SerializeField]private playerControl player;
 
     public int attackForce=1;//¹¥»÷Á¦
 
-    public int healthNum=2;//ÉúÃü
+   
 
 
     Vector3 initPosition;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerControl>();
+
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();

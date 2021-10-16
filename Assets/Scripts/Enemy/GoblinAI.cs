@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinAI : MonoBehaviour
+public class GoblinAI : EnemyAI
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
-    public Animator anim;
 
     [Header("移动参数")]
     public float speed;
@@ -15,8 +14,6 @@ public class GoblinAI : MonoBehaviour
     [Header("攻击参数")]
     public int attackForce;//攻击力
 
-
-    public int healthNum;//生命
 
 
     void Start()
