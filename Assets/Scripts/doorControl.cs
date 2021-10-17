@@ -26,7 +26,7 @@ public class doorControl : MonoBehaviour
 
     public void OpenDoors()//实现开门
     {
-        Debug.Log("怪物消失");
+        
         doorL.SetActive(false);
         doorR.SetActive(false);
         doorU.SetActive(false);

@@ -9656,7 +9656,11 @@ MonoBehaviour:
   enemys:
   - {fileID: 1339343151301652608, guid: 5bcfe35ee6dc198419b8bb1060e54a62, type: 3}
   - {fileID: 9028824137134865994, guid: 688f3b4bb4700d14abc50885c1f49b48, type: 3}
-  Awards: []
+  Awards:
+  - {fileID: 8194680914292342181, guid: 4b9e79587e3b2a64e93181516e535a66, type: 3}
+  noInitedBox: 1
+  AwardObjects:
+  - {fileID: 2340332006205750527, guid: 02276b38ef3cc42489ed2f9d9de7f01c, type: 3}
 --- !u!1001 &1335379900528793110
 PrefabInstance:
   m_ObjectHideFlags: 0
