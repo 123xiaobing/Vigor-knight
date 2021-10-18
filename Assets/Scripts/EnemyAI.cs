@@ -18,7 +18,9 @@ public class EnemyAI : MonoBehaviour
             bullet _bullet = collision.gameObject.GetComponent<bullet>();
             int hurt = _bullet.attackForce;
             healthNum -= hurt;
-            Destroy(collision.gameObject);
+
+            collision.gameObject.SetActive(false);
+            //Destroy(collision.gameObject);
             if (healthNum <= 0&&isAlive)
             {
                anim.SetBool("Die", true);

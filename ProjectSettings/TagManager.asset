@@ -14,6 +14,7 @@ TagManager:
   - Destroyable
   - Room
   - Bullet
+  - TransferGate
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Destroyable
   - wall
   - Obstacle
-  - 
+  - TransferGate
   - 
   - 
   - 

@@ -27,6 +27,10 @@ public class RoomGenerator : MonoBehaviour
 
     public WallType walltype;
 
+    //记录物理距离最远房间的距离
+    float furthest;
+    //记录物理距离最远的房间，生成传送门或者BOSS
+    public int furthestRoomNum = 0;
 
 
     void Start()
@@ -39,6 +43,22 @@ public class RoomGenerator : MonoBehaviour
             ChangePointPosition();
         }
 
+        
+        
+        furthest = Mathf.Abs(rooms[1].transform.position.x - rooms[0].transform.position.x) + Mathf.Abs(rooms[1].transform.position.y - rooms[0].transform.position.y);
+
+        for(int i=2;i<roomNumber;i++)
+        {
+            float temp= Mathf.Abs(rooms[i].transform.position.x - rooms[0].transform.position.x) + Mathf.Abs(rooms[i].transform.position.y - rooms[0].transform.position.y);
+            if(temp>furthest)
+            {
+                furthest = temp;
+                furthestRoomNum = i;
+            }
+        }
+
+        Debug.Log("最远房间号是" + furthestRoomNum);
+
         rooms[0].GetComponent<SpriteRenderer>().color = startColor;
 
         endRoom = rooms[0].gameObject;
@@ -47,9 +67,7 @@ public class RoomGenerator : MonoBehaviour
         //找到最后房间
         foreach(var room in rooms)
         {
-
             SetupRoom(room, room.transform.position);
-
         }
         FindEndRoom();
         endRoom.GetComponent<SpriteRenderer>().color = endColor;

@@ -20,20 +20,27 @@ public class WeaponControl : MonoBehaviour
        
         transform.position = new Vector3(player.rb.position.x+0.117f, player.rb.position.y-0.189f, transform.position.z);
 
-        //ÊÖÇ¹Éä»÷
-        if (timeBtwShots <= 0)
-        {
-            if (isPistolShooting())
-            {
-                 Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
-                timeBtwShots = startTimeBtwShots;
-            }
 
-        }
-        else
+        if (isPistolShooting())
         {
-            timeBtwShots -= Time.deltaTime;
+            PoolManager.Release(bulletPrefab, shotPoint.position, transform.rotation);
+            timeBtwShots = startTimeBtwShots;
         }
+
+        ////ÊÖÇ¹Éä»÷
+        //if (timeBtwShots <= 0)
+        //{
+        //    if (isPistolShooting())
+        //    {
+        //         Instantiate(bulletPrefab, shotPoint.position, transform.rotation);
+        //        timeBtwShots = startTimeBtwShots;
+        //    }
+
+        //}
+        //else
+        //{
+        //    timeBtwShots -= Time.deltaTime;
+        //}
 
         //»úÇ¹Éä»÷
         

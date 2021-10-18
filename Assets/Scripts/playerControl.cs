@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class playerControl : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -13,22 +15,20 @@ public class playerControl : MonoBehaviour
     public int MaxHealth;
     public int magicNum;
     public int MaxMagic;
-    public int defenceNum;
+    public int defenceNum;//三秒+1
     public int MaxDefence;
 
-
+    long stopTime = -3;
 
     public float speed;
     public float speed1;
     Vector2 movement;
 
-
     public Transform playerPrefab;//用于记录玩家的位置，让怪物实现自动寻路
 
-
+    public LayerMask TransferGate;//记录传送门的图层
     
     
-
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class playerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
+        
         speed1 = speed;
         
         healthNum = MaxHealth;
@@ -57,6 +58,10 @@ public class playerControl : MonoBehaviour
 
         switchAnim();
 
+        DefenceNumAdd();//护甲自动回复
+        
+        Transfer();//传送
+
     }
     private void FixedUpdate()
     {
@@ -71,5 +76,30 @@ public class playerControl : MonoBehaviour
         anim.SetFloat("running", movement.magnitude-0.1f);
     }
 
-   
+
+
+    //护甲自动回复
+    public void DefenceNumAdd()
+    {
+        if (defenceNum == MaxDefence)
+            stopTime = (long)Time.time;
+
+        if(Time.time-stopTime>3f&&defenceNum<MaxDefence)
+        {
+            stopTime += 3;
+            defenceNum += 1;
+        }
+    }
+
+
+    void Transfer()
+    {
+        if(coll.IsTouchingLayers(TransferGate))
+        {
+            //按E进入下一关
+            if (Input.GetKey(KeyCode.E))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
 }
