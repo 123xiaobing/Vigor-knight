@@ -71,7 +71,7 @@ public class PigAI : EnemyAI
                 if (player.healthNum <= 0)
                 {
                     player.anim.SetBool("die", true);
-                    player.speed1 = 0;
+                    
                     Time.timeScale = 0;
                     //ÇÐ»»ËÀÍö»­Ãæ 
                 }

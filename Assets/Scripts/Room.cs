@@ -228,14 +228,14 @@ public class Room : MonoBehaviour
         }
 
         //生成传送门
-        if(sr.color==Color.red&&nextLevelDoorNum==0&&index!=4)
+        if(sr.color==Color.red&&nextLevelDoorNum==0&&index!=5)
         {
             Instantiate(nextLevelDoor, transform.position, Quaternion.identity);
             nextLevelDoorNum += 1;
         }
 
         //生成BOSS
-        if(sr.color == Color.red&&noInitedEnemy && index== 4)
+        if(sr.color == Color.red&&noInitedEnemy && index== 5)
         {
             //生成BOSS
             Invoke("initBoss", 1.5f);

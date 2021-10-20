@@ -27,7 +27,7 @@ using Thread = System.Threading.Thread;
 public class AstarPath : VersionedMonoBehaviour
 {
 
-	long stopTime = -3;
+	long stopTime = -1;
 
 	/// <summary>The version number for the A* %Pathfinding Project</summary>
 	public static readonly System.Version Version = new System.Version(4, 2, 15);
@@ -839,9 +839,9 @@ public class AstarPath : VersionedMonoBehaviour
 			if (logPathResults == PathLog.InGame) {
 				inGameDebugPath = debug;
 			} else if (path.error) {
-				Debug.LogWarning(debug);
+				//Debug.LogWarning(debug);
 			} else {
-				Debug.Log(debug);
+				//Debug.Log(debug);
 			}
 		}
 	}
@@ -876,10 +876,10 @@ public class AstarPath : VersionedMonoBehaviour
 
 		// Return calculated paths
 		pathReturnQueue.ReturnPaths(true);
-        if (Time.time - stopTime > 3f)
+        if (Time.time - stopTime > 1f)
         {
 			AstarPath.active.Scan();
-			stopTime += 3;
+			stopTime += 1;
 		}
 		
 	}
@@ -1789,7 +1789,7 @@ public class AstarPath : VersionedMonoBehaviour
 		System.GC.Collect();
 
 		if (logPathResults != PathLog.None && logPathResults != PathLog.OnlyErrors) {
-			Debug.Log("Scanning - Process took "+(lastScanTime*1000).ToString("0")+" ms to complete");
+			//Debug.Log("Scanning - Process took "+(lastScanTime*1000).ToString("0")+" ms to complete");
 		}
 	}
 

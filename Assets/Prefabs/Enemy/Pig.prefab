@@ -120,10 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5f0c7a88efcc54a997f0accb5e2928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   anim: {fileID: 8039219927191275655}
+  healthNum: 2
+  isAlive: 1
   player: {fileID: 3239928647837313129, guid: 1a9c636b929e9334e92d48f996c28849, type: 3}
   attackForce: 1
-  healthNum: 2
 --- !u!50 &1539052495381318281
 Rigidbody2D:
   serializedVersion: 4
@@ -188,12 +190,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 32400
-  slowdownDistance: 0.75
-  pickNextWaypointDist: 1.19
-  endReachedDistance: 0.31
+  slowdownDistance: 0.3
+  pickNextWaypointDist: 0.3
+  endReachedDistance: 0.5
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 1
+  whenCloseToDestination: 0
   constrainInsideGraph: 0
 --- !u!114 &1815266662
 MonoBehaviour:
@@ -222,7 +224,7 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: 1023
+    value: -1
 --- !u!58 &3707158975215250055
 CircleCollider2D:
   m_ObjectHideFlags: 0
