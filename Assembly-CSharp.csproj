@@ -61,7 +61,7 @@
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Enemy\PigAI.cs" />
     <Compile Include="Assets\Scripts\PetControl.cs" />
-    <Compile Include="Assets\WeaponThree.cs" />
+    <Compile Include="Assets\Scripts\WeaponThree.cs" />
     <Compile Include="Assets\Scripts\smallMapControl.cs" />
     <Compile Include="Assets\Scripts\playerControl.cs" />
     <Compile Include="Assets\Scripts\begin.cs" />
@@ -75,13 +75,13 @@
     <Compile Include="Assets\Scripts\bullet1.cs" />
     <Compile Include="Assets\Scripts\Skillcontrol.cs" />
     <Compile Include="Assets\Scripts\RoomGenerator.cs" />
-    <Compile Include="Assets\bullet3.cs" />
-    <Compile Include="Assets\bullet2.cs" />
-    <Compile Include="Assets\WeaponTwo.cs" />
+    <Compile Include="Assets\Scripts\bullet3.cs" />
+    <Compile Include="Assets\Scripts\bullet2.cs" />
+    <Compile Include="Assets\Scripts\WeaponTwo.cs" />
     <Compile Include="Assets\Scripts\doorControl.cs" />
     <Compile Include="Assets\Scripts\BulletSystem.cs" />
     <Compile Include="Assets\Scripts\wallMap.cs" />
-    <Compile Include="Assets\LoadManager.cs" />
+    <Compile Include="Assets\Scripts\LoadManager.cs" />
     <Compile Include="Assets\Scripts\SandBoxControl.cs" />
     <Compile Include="Assets\Scripts\BulletsPool.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />

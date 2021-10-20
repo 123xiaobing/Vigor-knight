@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 0}
   anim: {fileID: 8878925445004982758}
-  healthNum: 2
+  healthNum: 5
   isAlive: 1
   speed: 2
   L_point: {fileID: 6090614888689964117}
