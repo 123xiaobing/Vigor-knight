@@ -39,9 +39,6 @@ public class SandBoxControl : MonoBehaviour
                 nowTime += disappearTime;
             }
                 
-            
-            
-
         }
 
 

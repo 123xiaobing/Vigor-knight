@@ -3552,13 +3552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2190a63b653ddb549a72e2910d0190fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  anim: {fileID: 0}
-  healthNum: 15
-  isAlive: 1
   skillPrefab:
   - {fileID: 4741760751697832035}
   stopTime: 0
+  healthNum: 200
 --- !u!1 &4679417511864835156
 GameObject:
   m_ObjectHideFlags: 0

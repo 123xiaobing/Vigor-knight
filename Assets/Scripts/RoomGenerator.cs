@@ -43,21 +43,7 @@ public class RoomGenerator : MonoBehaviour
             ChangePointPosition();
         }
 
-        
-        
-        furthest = Mathf.Abs(rooms[1].transform.position.x - rooms[0].transform.position.x) + Mathf.Abs(rooms[1].transform.position.y - rooms[0].transform.position.y);
 
-        for(int i=2;i<roomNumber;i++)
-        {
-            float temp= Mathf.Abs(rooms[i].transform.position.x - rooms[0].transform.position.x) + Mathf.Abs(rooms[i].transform.position.y - rooms[0].transform.position.y);
-            if(temp>furthest)
-            {
-                furthest = temp;
-                furthestRoomNum = i;
-            }
-        }
-
-        Debug.Log("最远房间号是" + furthestRoomNum);
 
         rooms[0].GetComponent<SpriteRenderer>().color = startColor;
 
@@ -75,11 +61,6 @@ public class RoomGenerator : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ChangePointPosition()
     {
         do
@@ -111,7 +92,7 @@ public class RoomGenerator : MonoBehaviour
         newRoom.roomLeft = Physics2D.OverlapCircle(roomPosition + new Vector3(-xOffset, 0, 0), 0.1f, RoomLayer);
         newRoom.roomRight = Physics2D.OverlapCircle(roomPosition + new Vector3(xOffset, 0, 0), 0.1f, RoomLayer);
                 
-        newRoom.UpdateRoom(xOffset,yOffset);
+        newRoom.UpdateRoom(xOffset,yOffset);//判断有几个门，生成几个门的模型
         
         
         switch(newRoom.doorNum)
@@ -162,7 +143,7 @@ public class RoomGenerator : MonoBehaviour
         for (int  i = 0;  i < rooms.Count;  i++)
         {
             if (rooms[i].stepToStart > maxStep)
-                maxStep = rooms[i].stepToStart;
+                maxStep = rooms[i].stepToStart;//最大数字刷新，得到最远的房间
         }
 
         //获得房间的最大值和次大值
@@ -174,6 +155,7 @@ public class RoomGenerator : MonoBehaviour
                 lessFarRooms.Add(room.gameObject);
         }
 
+        //找出单门的房间
         for (int i = 0; i < farRooms.Count; i++)
         {
             if (farRooms[i].GetComponent<Room>().doorNum == 1)
